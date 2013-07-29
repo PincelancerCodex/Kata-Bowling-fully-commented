@@ -32,7 +32,7 @@ class Frame
   end	  
 
   def next_frame_finished?
-    has_next_frame? && next_frame.finished?
+    has_next_frame? && next_frame.turn_finished?
   end	  
 
   def next_frame= ( frame )
@@ -58,10 +58,10 @@ class Frame
   end
 
   def bonus_next_two_rolls
-    other_method if next_frame_finished?
+    bonus_strike_roll if next_frame_finished?
   end
 
-  def other_method 
+  def bonus_strike_roll 
     next_frame.strike? ?
       ( 10+next_frame.next_roll rescue nil ) : next_frame.total_pins	    
   end
