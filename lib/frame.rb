@@ -45,12 +45,25 @@ class Frame
 
   def score
     if strike?
-      total_pins + next_two_rolls rescue nil	    
+      total_pins + bonus_next_two_rolls rescue nil	    
     elsif spare?
-      total_pins + next_roll rescue nil	    
+      total_pins + bonus_next_roll rescue nil	    
     else
       total_pins	    
     end
+  end
+
+  def bonus_next_roll
+    next_frame.rolls.first if has_next_frame?
+  end
+
+  def bonus_next_two_rolls
+    other_method if next_frame_finished?
+  end
+
+  def other_method 
+    next_frame.strike? ?
+      ( 10+next_frame.next_roll rescue nil ) : next_frame.total_pins	    
   end
 
 end

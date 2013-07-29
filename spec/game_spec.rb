@@ -24,4 +24,20 @@ describe Game, "Bowling" do
     end
   end
 
+  context "Spare and 1 pin each one" do
+    before :each do
+      bowling.roll 9
+      bowling.spare
+      18.times { bowling.roll 1 }
+    end
+
+    it "has 10 frames" do
+      bowling.frames.length.should eq 10
+    end
+
+    it "has score 29" do
+      bowling.score.should eq 29
+    end
+  end
+
 end
