@@ -15,7 +15,7 @@ class Game
   end
 
   def roll pins
-    if(@current.finished?)
+    if(@current.turn_finished?)
       frames.push @current.next_frame = @current = Frame.new	    
     end
     @current.roll pins
@@ -23,6 +23,10 @@ class Game
 
   def spare
     roll 10 - @current.rolls.first
+  end
+
+  def score
+    10.times.inject(0) { |sum, i| sum + ( frames[i].score || 0 ) }
   end
 
 end

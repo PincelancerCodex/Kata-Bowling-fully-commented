@@ -27,4 +27,32 @@ class Frame
     strike? || rolls.length == 2
   end
 
+  def has_next_frame?
+    !next_frame.nil?
+  end	  
+
+  def next_frame_finished?
+    has_next_frame? && next_frame.finished?
+  end	  
+
+  def next_frame= ( frame )
+    @next_frame = frame
+  end
+
+  def next_frame
+    @next_frame
+  end
+
+  def score
+    if strike?
+      total_pins + next_two_rolls rescue nil	    
+    elsif spare?
+      total_pins + next_roll rescue nil	    
+    else
+      total_pins	    
+    end
+  end
+
 end
+
+
