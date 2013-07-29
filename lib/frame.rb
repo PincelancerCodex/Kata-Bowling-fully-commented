@@ -23,7 +23,7 @@ class Frame
     rolls.inject { |sum,n| sum += n }
   end
 
-  def turn_finished?
+  def finished?
     strike? || rolls.length == 2
   end
 
@@ -32,7 +32,7 @@ class Frame
   end	  
 
   def next_frame_finished?
-    has_next_frame? && next_frame.turn_finished?
+    has_next_frame? && next_frame.finished?
   end	  
 
   def next_frame= ( frame )
@@ -45,25 +45,25 @@ class Frame
 
   def score
     if strike?
-      total_pins + bonus_next_two_rolls rescue nil	    
+      total_pins + next_two_rolls rescue nil	    
     elsif spare?
-      total_pins + bonus_next_roll rescue nil	    
+      total_pins + next_roll rescue nil	    
     else
       total_pins	    
     end
   end
 
-  def bonus_next_roll
+  def next_roll
     next_frame.rolls.first if has_next_frame?
   end
 
-  def bonus_next_two_rolls
+  def next_two_rolls
     bonus_strike_roll if next_frame_finished?
   end
 
   def bonus_strike_roll 
     next_frame.strike? ?
-      ( 10+next_frame.next_roll rescue nil ) : next_frame.total_pins	    
+      ( 10 + next_frame.next_roll rescue nil ) : next_frame.total_pins	    
   end
 
 end

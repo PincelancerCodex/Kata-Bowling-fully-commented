@@ -15,7 +15,7 @@ class Game
   end
 
   def roll pins
-    if(@current.turn_finished?)
+    if(@current.finished?)
       frames.push @current.next_frame = @current = Frame.new	    
     end
     @current.roll pins

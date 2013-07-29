@@ -60,12 +60,26 @@ describe Game, "Bowling" do
       18.times { bowling.roll 1 }
     end
 
-    it "has 10 frames" do
+    it "should be has 10 frames" do
       bowling.frames.length.should eq 10
     end
 
-    it "has score 30" do
+    it "should be has score 30" do
       bowling.score.should eq 30
+    end
+  end
+
+  context "Perfect Game" do
+    before :each do
+      12.times { bowling.strike }
+    end
+
+    it "should be has 12 frames" do
+      bowling.frames.length.should eq 12
+    end
+
+    it "should be has score 300" do
+      bowling.score.should eq 300
     end
   end
 
