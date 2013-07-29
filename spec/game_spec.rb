@@ -8,7 +8,6 @@ describe Game, "Bowling" do
     it "sets rolls as [](default)" do
        bowling.frames.should be_kind_of Array 
     end
-
- end
+  end
 
 end

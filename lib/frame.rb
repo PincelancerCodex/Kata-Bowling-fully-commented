@@ -7,4 +7,12 @@ class Frame
     @rolls = []
   end
 
+  def strike?
+    rolls.first == 10
+  end
+
+  def roll pins
+    rolls.push pins
+  end
+
 end

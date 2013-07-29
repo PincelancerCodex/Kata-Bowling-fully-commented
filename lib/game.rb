@@ -10,4 +10,15 @@ class Game
     frames.push @current
   end
 
+  def strike
+    roll 10
+  end
+
+  def roll pins
+    if(@current.finished?)
+      frames.push @current.next_frame = @current = Frame.new	    
+    end
+    @current.roll pins
+  end
+
 end
