@@ -53,6 +53,12 @@ describe Frame, "Bowling Game" do
     frame.turn_finished?.should be_true
   end
 
+  it "has score 6 after two rolls 3/3" do
+    frame.roll 3
+    frame.roll 3
+    frame.score.should == 6
+  end
+
 end
 
 
