@@ -21,4 +21,8 @@ class Game
     @current.roll pins
   end
 
+  def spare
+    roll 10 - @current.rolls.first
+  end
+
 end

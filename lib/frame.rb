@@ -23,4 +23,8 @@ class Frame
     rolls.inject { |sum,n| sum += n }
   end
 
+  def turn_finished?
+    strike? || rolls.length == 2
+  end
+
 end

@@ -31,4 +31,28 @@ describe Frame, "Bowling Game" do
     frame.total_pins.should == 7
   end
 
+  it "checks turn_finished? method works very well context strike" do
+    frame.roll 10
+    frame.turn_finished?.should be_true
+  end
+
+  it "checks turn_finished? method works very well context spare" do
+    frame.roll 4
+    frame.roll 6
+    frame.turn_finished?.should be_true
+  end
+
+  it "checks turn_finished? method work fine one roll context" do
+    frame.roll 7
+    frame.turn_finished?.should be_false
+  end
+
+  it "checks turn_finished? method work fine two rolls context" do
+    frame.roll 3
+    frame.roll 2
+    frame.turn_finished?.should be_true
+  end
+
 end
+
+
