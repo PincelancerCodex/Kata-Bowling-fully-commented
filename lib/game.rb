@@ -29,4 +29,8 @@ class Game
     10.times.inject(0) { |sum, i| sum + ( frames[i].score || 0 ) }
   end
 
+  def gutterball
+    roll 0
+  end
+
 end

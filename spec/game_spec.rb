@@ -24,6 +24,20 @@ describe Game, "Bowling" do
     end
   end
 
+  context "Gutter Game" do
+    before :each do
+      20.times { bowling.gutterball }
+    end
+
+    it "has 10 frames" do
+      bowling.frames.length.should eq 10
+    end
+
+    it "has score of 0" do
+      bowling.score.should eq 0
+    end
+  end
+
   context "Spare and 1 pin each one" do
     before :each do
       bowling.roll 9

@@ -59,6 +59,13 @@ describe Frame, "Bowling Game" do
     frame.score.should == 6
   end
 
+  it "has a score 15 after rolls 5/5(spare) and 5 as bonus(next roll)" do
+    frame.roll 5
+    frame.roll 5
+    frame.roll 5
+    frame.score.should eq 15
+  end
+
 end
 
 
