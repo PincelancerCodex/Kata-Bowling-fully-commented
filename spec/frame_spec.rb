@@ -25,4 +25,10 @@ describe Frame, "Bowling Game" do
     frame.spare?.should be_true
   end
 
+  it "checks total pins works fine" do
+    frame.roll 3
+    frame.roll 4
+    frame.total_pins.should == 7
+  end
+
 end
