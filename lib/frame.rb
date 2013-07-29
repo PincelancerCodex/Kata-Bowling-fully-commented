@@ -15,4 +15,12 @@ class Frame
     rolls.push pins
   end
 
+  def spare?
+    total_pins == 10
+  end
+
+  def total_pins
+    rolls.inject { |sum,n| sum += n }
+  end
+
 end

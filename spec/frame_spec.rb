@@ -14,9 +14,15 @@ describe Frame, "Bowling Game" do
     end
   end
 
-  it "check if the roll is strike?" do
+  it "checks if the roll is strike?" do
     frame.roll 10
     frame.strike?.should be_true
+  end
+
+  it "checks if the frame is spare" do
+    frame.roll 5
+    frame.roll 5
+    frame.spare?.should be_true
   end
 
 end
